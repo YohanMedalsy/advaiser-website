@@ -6,8 +6,11 @@ const ContactPage = () => {
     const [formState, setFormState] = useState({
         name: '',
         email: '',
-        subject: '',
-        message: ''
+        message: '',
+        projectType: '',
+        timeline: '',
+        budgetRange: '',
+        dataAccess: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -19,7 +22,15 @@ const ContactPage = () => {
         setTimeout(() => {
             setIsSubmitting(false);
             setIsSubmitted(true);
-            setFormState({ name: '', email: '', subject: '', message: '' });
+            setFormState({
+                name: '',
+                email: '',
+                message: '',
+                projectType: '',
+                timeline: '',
+                budgetRange: '',
+                dataAccess: ''
+            });
         }, 1500);
     };
 
@@ -44,7 +55,7 @@ const ContactPage = () => {
                         <div>
                             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's Talk</h1>
                             <p className="text-xl text-gray-400 leading-relaxed">
-                                Ready to start your AI journey? Whether you have a specific project in mind or just want to explore possibilities, we're here to help.
+                                Ready to build with AI? Whether you need an LLM/agent workflow (GenAI), a production ML model, or a full data-to-deployment system, I can help scope and ship it.
                             </p>
                         </div>
 
@@ -133,24 +144,77 @@ const ContactPage = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-2">
-                                    <label htmlFor="subject" className="text-sm font-medium text-gray-400">Subject</label>
-                                    <select
-                                        id="subject"
-                                        name="subject"
-                                        value={formState.subject}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
-                                    >
-                                        <option value="">Select a topic...</option>
-                                        <option value="consulting">Consulting Inquiry</option>
-                                        <option value="project">Project Proposal</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                {/* Optional qualifiers (keep friction low, improve lead quality) */}
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label htmlFor="projectType" className="text-sm font-medium text-gray-400">Project type (optional)</label>
+                                        <select
+                                            id="projectType"
+                                            name="projectType"
+                                            value={formState.projectType}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        >
+                                            <option value="">Not sure yet</option>
+                                            <option value="llm-agents">LLM / Agent system</option>
+                                            <option value="rag">RAG / Knowledge assistant</option>
+                                            <option value="production-ml">Production ML model</option>
+                                            <option value="mlops">MLOps / Deployment</option>
+                                            <option value="data-engineering">Data engineering / Pipelines</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="timeline" className="text-sm font-medium text-gray-400">Timeline (optional)</label>
+                                        <select
+                                            id="timeline"
+                                            name="timeline"
+                                            value={formState.timeline}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        >
+                                            <option value="">Not sure yet</option>
+                                            <option value="asap">ASAP</option>
+                                            <option value="2-4-weeks">2–4 weeks</option>
+                                            <option value="1-2-months">1–2 months</option>
+                                            <option value="flexible">Flexible</option>
+                                        </select>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="budgetRange" className="text-sm font-medium text-gray-400">Budget range (optional)</label>
+                                        <select
+                                            id="budgetRange"
+                                            name="budgetRange"
+                                            value={formState.budgetRange}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        >
+                                            <option value="">Not sure yet</option>
+                                            <option value="3-5k">$3k–$5k</option>
+                                            <option value="5-10k">$5k–$10k</option>
+                                            <option value="10-20k">$10k–$20k</option>
+                                            <option value="20k+">$20k+</option>
+                                        </select>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="dataAccess" className="text-sm font-medium text-gray-400">Data access (optional)</label>
+                                        <select
+                                            id="dataAccess"
+                                            name="dataAccess"
+                                            value={formState.dataAccess}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                                        >
+                                            <option value="">Not sure yet</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="not-yet">Not yet</option>
+                                            <option value="unsure">Not sure</option>
+                                        </select>
+                                    </div>
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label htmlFor="message" className="text-sm font-medium text-gray-400">Message</label>
+                                    <label htmlFor="message" className="text-sm font-medium text-gray-400">What are you trying to achieve?</label>
                                     <textarea
                                         id="message"
                                         name="message"
@@ -159,8 +223,9 @@ const ContactPage = () => {
                                         value={formState.message}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 bg-background border border-white/10 rounded-xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
-                                        placeholder="Tell us about your project..."
+                                        placeholder="Share your goal, success metric (if any), and constraints. If you're not sure, that's totally fine—I'll help you scope it."
                                     ></textarea>
+                                    <p className="text-xs text-gray-500">Tip: If you don't know the answers to the optional fields above, leave them blank.</p>
                                 </div>
 
                                 <button

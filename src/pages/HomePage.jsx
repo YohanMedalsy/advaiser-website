@@ -43,9 +43,35 @@ const HomePage = () => {
                             More Than an Adviser. Your AI Advantage.
                         </p>
 
-                        <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-                            Transforming businesses through advanced intelligence. Over a decade of expertise delivering high-impact Data Science, Analytics, and Agentic AI solutions.
+                        <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto mb-10 leading-relaxed">
+                            Transforming businesses through advanced intelligence. Over a decade of expertise delivering high‑impact{' '}
+                            <strong className="text-white">LLM/Agent systems</strong> (GenAI),{' '}
+                            <strong className="text-white">production ML</strong>, and analytics—built to integrate, deploy, and drive measurable results.
                         </p>
+
+                        {/* Proof Strip */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 16 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.15 }}
+                            className="max-w-4xl mx-auto mb-10"
+                        >
+                            <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 text-left shadow-lg shadow-black/20">
+                                <div className="text-xs uppercase tracking-wider text-gray-400 mb-2">Recently shipped</div>
+                                <div className="text-lg md:text-xl text-white font-semibold mb-2">
+                                    Multi‑agent ghostwriting + voice restyling workflow for LinkedIn advocacy
+                                </div>
+                                <p className="text-gray-300 leading-relaxed mb-4">
+                                    Automates drafting and restyling with voice constraints, guardrails, and review loops—improving throughput and consistency while reducing manual editing.
+                                </p>
+                                <Link
+                                    to="/portfolio/oktopost"
+                                    className="inline-flex items-center gap-2 text-primary hover:text-cyan-200 font-semibold"
+                                >
+                                    See case study <ArrowRight size={18} />
+                                </Link>
+                            </div>
+                        </motion.div>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                             <Link
                                 to="/contact"
@@ -59,6 +85,17 @@ const HomePage = () => {
                             >
                                 View Services
                             </Link>
+                        </div>
+
+                        {/* Micro-badge: high-signal, low-clutter */}
+                        <div className="mt-4 flex justify-center">
+                            <span className="inline-flex items-center gap-2 text-xs md:text-sm text-gray-300 bg-white/5 border border-white/10 rounded-full px-4 py-2 backdrop-blur-sm">
+                                <span className="text-primary font-semibold">LLM/Agent Systems</span>
+                                <span className="text-gray-500">•</span>
+                                <span>RAG Assistants</span>
+                                <span className="text-gray-500">•</span>
+                                <span>Production ML/MLOps</span>
+                            </span>
                         </div>
                     </motion.div>
                 </div>
@@ -106,17 +143,17 @@ const HomePage = () => {
                             {
                                 icon: <Code size={32} />,
                                 title: "Hands-On Expertise",
-                                desc: "Deep practical experience building production-ready AI systems and analytics pipelines."
+                                desc: "Deep practical experience shipping production-ready AI systems—LLM/agent workflows, ML pipelines, and analytics—end to end."
                             },
                             {
                                 icon: <Cpu size={32} />,
                                 title: "Cutting-Edge Methods",
-                                desc: "Leveraging the latest advances in ML, RL, and LLMs to solve complex business problems."
+                                desc: "Leveraging modern ML, RL, and LLM/agent techniques (GenAI) with a focus on real constraints: latency, cost, privacy, and reliability."
                             },
                             {
                                 icon: <BarChart size={32} />,
                                 title: "Data-Driven Results",
-                                desc: "Every solution is backed by rigorous statistical analysis and validated performance metrics."
+                                desc: "Every solution is backed by rigorous analysis and evaluation—offline metrics, A/B testing/experimentation, and monitoring in production."
                             }
                         ].map((feature, index) => (
                             <motion.div

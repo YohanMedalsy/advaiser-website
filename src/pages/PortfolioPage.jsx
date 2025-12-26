@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ExternalLink, Github, Gamepad2, TrendingUp, Brain, Shield, PenTool } from 'lucide-react';
 
 const PortfolioPage = () => {
+    const FILTERS = ["All", "LLM/Agents", "Production ML", "Growth Analytics"];
+    const [activeFilter, setActiveFilter] = useState("All");
+
     const projects = [
         {
-            title: "AI Social Marketing Platform",
-            category: "GenAI & Automation",
-            description: "Architected a multi-agent system for social media, featuring a 'Ghostwriter' that matches personal brand voice and a 'Restyling Agent' that scales employee advocacy. Automated 90% of manual copywriting.",
+            title: "LLM Social Advocacy Agents",
+            category: "LLM Agents (GenAI)",
+            filterGroup: "LLM/Agents",
+            description: "Architected a multi-agent system that learns an advocate’s style and restyles/generates LinkedIn posts at scale—automating ~90% of manual copywriting.",
             image: "/images/oktopost.png",
             link: "/portfolio/oktopost",
             icon: <PenTool size={40} className="text-pink-300" />,
@@ -16,12 +20,29 @@ const PortfolioPage = () => {
                 { label: "Manual Effort", value: "-90%" },
                 { label: "Content Output", value: "100x" }
             ],
-            tags: ["LLMs", "LangChain", "Style Transfer", "Python"]
+            tags: ["LLM Agents", "Style Transfer", "LangChain", "Python"]
         },
+
+        {
+            title: "LLM Ghostwriting Agent",
+            category: "LLM Agents (GenAI)",
+            filterGroup: "LLM/Agents",
+            description: "Built an agentic ghostwriting workflow that drafts LinkedIn posts in an advocate’s voice with brand constraints, review loops, and quality guardrails.",
+            image: "/images/oktopost.png",
+            link: "/portfolio/oktopost",
+            icon: <Brain size={40} className="text-violet-300" />,
+            stats: [
+                { label: "Draft Time", value: "-80%" },
+                { label: "Consistency", value: "↑" }
+            ],
+            tags: ["LLM Agents", "OpenAI API", "Guardrails", "FastAPI"]
+        },
+
         {
             title: "Cybersecurity Unicorn",
-            category: "Cybersecurity & DL",
-            description: "Engineered a real-time deep learning classifier to detect zero-day phishing and malware domains based on lexical features, protecting millions of users instantly.",
+            category: "Deep Learning Systems",
+            filterGroup: "Production ML",
+            description: "Engineered a real-time deep learning classifier to detect phishing and malicious domains based on lexical features, protecting millions of users instantly.",
             image: "/images/guardio.png",
             link: "/portfolio/guardio",
             icon: <Shield size={40} className="text-blue-300" />,
@@ -33,8 +54,9 @@ const PortfolioPage = () => {
         },
         {
             title: "Mobile Gaming Network",
-            category: "Gaming & RL",
-            description: "Implemented a Contextual Bandit system for mobile games to adjust difficulty in real-time, optimizing for 'flow' state and maximizing player LTV.",
+            category: "RL & Personalization",
+            filterGroup: "Growth Analytics",
+            description: "Implemented a contextual bandit system to personalize level difficulty in real time, optimizing for player flow and maximizing long-term value.",
             image: "/images/spaceplay.png",
             link: "/portfolio/spaceplay",
             icon: <Gamepad2 size={40} className="text-emerald-300" />,
@@ -45,6 +67,11 @@ const PortfolioPage = () => {
             tags: ["Reinforcement Learning", "Contextual Bandits", "OPE"]
         }
     ];
+
+    const filteredProjects = useMemo(() => {
+        if (activeFilter === "All") return projects;
+        return projects.filter((p) => p.filterGroup === activeFilter);
+    }, [activeFilter, projects]);
 
     return (
         <div className="pt-20 pb-32">
@@ -63,12 +90,40 @@ const PortfolioPage = () => {
                         transition={{ delay: 0.1 }}
                         className="text-xl text-gray-400 max-w-2xl mx-auto"
                     >
-                        Real-world applications of AI delivering measurable business impact.
+                        LLM/agent systems and production ML delivering measurable business impact.
                     </motion.p>
+
+                    {/* Filter */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="mt-8 flex flex-wrap items-center justify-center gap-3"
+                        aria-label="Portfolio filters"
+                    >
+                        {FILTERS.map((filter) => {
+                            const isActive = activeFilter === filter;
+                            return (
+                                <button
+                                    key={filter}
+                                    type="button"
+                                    onClick={() => setActiveFilter(filter)}
+                                    className={
+                                        "px-4 py-2 rounded-full text-sm font-medium border transition-all " +
+                                        (isActive
+                                            ? "bg-primary/20 text-white border-primary/30"
+                                            : "bg-white/5 text-gray-300 border-white/10 hover:bg-white/10")
+                                    }
+                                >
+                                    {filter}
+                                </button>
+                            );
+                        })}
+                    </motion.div>
                 </div>
 
                 <div className="space-y-20">
-                    {projects.map((project, index) => (
+                    {filteredProjects.map((project, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 40 }}

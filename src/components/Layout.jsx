@@ -112,32 +112,49 @@ const Footer = () => {
                             <Logo className="h-12" />
                         </div>
                         <p className="text-gray-400 max-w-sm">
-                            Transforming businesses with artificial intelligence. Expert consulting in Data Science, ML Engineering, and MLOps.
+                            Transforming businesses with LLM/Agent systems (GenAI) and production ML. Expert consulting in ML Engineering, MLOps, and Data Science.
                         </p>
                     </div>
 
                     <div>
                         <h3 className="text-white font-semibold mb-4">Services</h3>
                         <ul className="space-y-2 text-gray-400">
-                            <li><Link to="/services" className="hover:text-primary transition">Data Science</Link></li>
-                            <li><Link to="/services" className="hover:text-primary transition">Machine Learning</Link></li>
-                            <li><Link to="/services" className="hover:text-primary transition">LLM Training</Link></li>
-                            <li><Link to="/services" className="hover:text-primary transition">MLOps</Link></li>
+                            <li><Link to="/services" className="hover:text-primary transition">LLM / Agent Systems (GenAI)</Link></li>
+                            <li><Link to="/services" className="hover:text-primary transition">RAG Assistants & Automation</Link></li>
+                            <li><Link to="/services" className="hover:text-primary transition">Machine Learning Engineering</Link></li>
+                            <li><Link to="/services" className="hover:text-primary transition">MLOps (Deployment & Monitoring)</Link></li>
+                            <li><Link to="/services" className="hover:text-primary transition">Data Science & Experimentation</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 className="text-white font-semibold mb-4">Connect</h3>
                         <div className="flex space-x-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                            <a
+                                href="https://www.linkedin.com/in/yohanmedalsy"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="LinkedIn"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
+                            >
                                 <Linkedin size={20} />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                            <a
+                                href="https://github.com/YohanMedalsy"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="GitHub"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
+                            >
                                 <Github size={20} />
                             </a>
-                            <a href="mailto:advaiser.services@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                            <Link
+                                to="/contact"
+                                aria-label="Contact"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
+                            >
                                 <Mail size={20} />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
