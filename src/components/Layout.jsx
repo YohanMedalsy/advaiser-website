@@ -161,7 +161,7 @@ const Footer = () => {
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-gray-500 text-sm">
-                        © 2025 AI2U. All rights reserved.
+                        © {new Date().getFullYear()} advAIser. All rights reserved.
                     </p>
                     <div className="flex gap-6 text-sm text-gray-500">
                         <a href="#" className="hover:text-white transition">Privacy Policy</a>
