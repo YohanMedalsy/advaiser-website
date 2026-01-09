@@ -61,8 +61,8 @@ const PortfolioPage = () => {
             link: "/portfolio/spaceplay",
             icon: <Gamepad2 size={40} className="text-emerald-300" />,
             stats: [
-                { label: "Retention", value: "+15%" },
-                { label: "Optimization", value: "8.7x" }
+                { label: "Player Revenue", value: "+27%" },
+                { label: "Coin Spend", value: "+50%" }
             ],
             tags: ["Reinforcement Learning", "Contextual Bandits", "OPE"]
         }
