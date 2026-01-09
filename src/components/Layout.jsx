@@ -33,7 +33,7 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     <Link to="/" className="flex flex-col items-center gap-0.5 group">
-                        <Logo className="h-20 w-auto group-hover:scale-105 transition-transform duration-300" />
+                        <Logo className="h-32 w-auto group-hover:scale-105 transition-transform duration-300" />
                         <span className="text-[10px] uppercase tracking-widest text-primary/80 font-medium">
                             Your Personal AI & Data Adviser
                         </span>
@@ -109,7 +109,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                     <div className="col-span-1 md:col-span-2">
                         <div className="flex items-center gap-3 mb-4">
-                            <Logo className="h-12" />
+                            <Logo className="h-20" />
                         </div>
                         <p className="text-gray-400 max-w-sm">
                             Transforming businesses with LLM/Agent systems (GenAI) and production ML. Expert consulting in ML Engineering, MLOps, and Data Science.
