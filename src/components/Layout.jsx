@@ -32,7 +32,7 @@ const Navbar = () => {
         )}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
-                    <Link to="/" className="flex flex-col items-center gap-0 group">
+                    <Link to="/" className="flex flex-col items-center gap-0 group -mt-4">
                         <Logo className="h-28 w-auto group-hover:scale-105 transition-transform duration-300" />
                         <span className="text-xs uppercase tracking-widest text-primary/80 font-medium -mt-1">
                             Your Personal AI & Data Adviser
