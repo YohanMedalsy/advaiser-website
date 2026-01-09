@@ -9,7 +9,7 @@ const CaseStudyGuardio = () => {
             heroImage="/images/guardio.png"
             stats={[
                 { label: "Inference Latency", value: "<10ms" },
-                { label: "Detection Accuracy", value: "99.9%" },
+                { label: "Detection Accuracy", value: "98.5%" },
                 { label: "Daily Scans", value: "Millions" }
             ]}
             tags={["Deep Learning", "TensorFlow", "Cybersecurity", "CNN/LSTM", "Real-time API"]}
