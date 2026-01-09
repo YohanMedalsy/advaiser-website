@@ -9,8 +9,8 @@ const CaseStudySpacePlay = () => {
             heroImage="/images/spaceplay.png"
             stats={[
                 { label: "Retention Uplift", value: "+15%" },
-                { label: "Optimization Factor", value: "8.7x" },
-                { label: "User Sessions", value: "43K+" }
+                { label: "Player Revenue Uplift", value: "27%" },
+                { label: "Coin Spend", value: "+50%" }
             ]}
             tags={["Reinforcement Learning", "Contextual Bandits", "PySpark", "A/B Testing", "Data Science"]}
             nextLink="/portfolio/oktopost"
@@ -46,7 +46,7 @@ const CaseStudySpacePlay = () => {
                         <strong className="text-primary">Action (Intervention):</strong> The model selects a difficulty configuration from thousands of permutations (e.g., "Spawn 20% fewer enemies," "Drop extra health pack," "Increase game speed").
                     </li>
                     <li>
-                        <strong className="text-primary">Reward (Objective):</strong> The feedback loop. If the player completes the level <em>and</em> plays the next one, the model gets a positive reward. If they quit, it learns that the specific intervention was suboptimal for that player type.
+                        <strong className="text-primary">Reward (Objective):</strong> The feedback loop. The model optimizes directly for <strong>player revenue and coin spend</strong>. If an intervention leads to a purchase or currency usage, the model is positively reinforced; if engagement drops, it adjusts.
                     </li>
                 </ul>
             </section>
@@ -54,12 +54,12 @@ const CaseStudySpacePlay = () => {
             <section>
                 <h2 className="text-3xl font-bold text-white mb-6">The Outcome</h2>
                 <p className="text-gray-300 leading-relaxed text-lg">
-                    The experiment was a definitive success. By personalizing the difficulty curve, we smoothed out the "churn spike" at Level 5 and significantly extended the average user lifecycle.
+                    The experiment was a definitive success. By personalizing the difficulty curve, we saw a direct correlation between optimal flow state and monetization behaviors. The system successfully drove increases in player revenue and in-game coin spending for level progression.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                     <div className="bg-white/5 p-6 rounded-xl border border-white/10">
-                        <div className="text-4xl font-bold text-primary mb-2">+15%</div>
-                        <div className="text-gray-400">Increase in Day-7 Retention rates vs. the control group.</div>
+                        <div className="text-4xl font-bold text-primary mb-2">+27%</div>
+                        <div className="text-gray-400">Increase in Player Revenue vs. the control group.</div>
                     </div>
                     <div className="bg-white/5 p-6 rounded-xl border border-white/10">
                         <div className="text-4xl font-bold text-primary mb-2">Adaptive</div>
