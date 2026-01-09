@@ -48,7 +48,7 @@ const PortfolioPage = () => {
             icon: <Shield size={40} className="text-blue-300" />,
             stats: [
                 { label: "Latency", value: "<10ms" },
-                { label: "Detection Rate", value: "99.9%" }
+                { label: "Detection Rate", value: "98.5%" }
             ],
             tags: ["Deep Learning", "TensorFlow", "API", "Security"]
         },
@@ -134,14 +134,14 @@ const PortfolioPage = () => {
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                                 {/* Image/Visual Side */}
-                                <div className="h-64 lg:h-auto min-h-[300px] relative overflow-hidden">
+                                <Link to={project.link} className="h-64 lg:h-auto min-h-[300px] relative overflow-hidden block cursor-pointer">
                                     <div className="absolute inset-0 bg-black/20 z-10"></div>
                                     <img
                                         src={project.image}
                                         alt={project.title}
                                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                </div>
+                                </Link>
 
                                 {/* Content Side */}
                                 <div className="p-8 md:p-12 flex flex-col justify-center">
